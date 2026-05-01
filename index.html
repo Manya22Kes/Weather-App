@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<h1 class="brand">&#9729;&#65039; Skyveil</h1>
+
+<div class="search-bar">
+  <button onclick="useMyLocation()">📍 Use My Location</button>
+  <input type="text" id="cityInput" placeholder="Search city..." />
+  <button onclick="fetchWeather()">Search</button>
+  <button onclick="clearSearch()" class="clear-btn">✕</button>
+</div>
+
+<div class="unit-toggle">
+  <button class="active" id="btn-c" onclick="setUnit('metric')">&#176;C</button>
+  <button id="btn-f" onclick="setUnit('imperial')">&#176;F</button>
+</div>
+
+<div id="welcome-section" class="welcome-section">
+  <div id="facts-container" class="facts-container">
+    <div id="weather-fact" class="weather-fact"></div>
+  </div>
+  <div class="suggested-cities">
+    <div class="suggested-title">Suggested Cities</div>
+    <div class="cities-grid">
+      <button class="city-btn" onclick="searchCity('London')">🇬🇧 London</button>
+      <button class="city-btn" onclick="searchCity('New York')">🗽 New York</button>
+      <button class="city-btn" onclick="searchCity('Tokyo')">🗾 Tokyo</button>
+      <button class="city-btn" onclick="searchCity('Paris')">🗼 Paris</button>
+      <button class="city-btn" onclick="searchCity('Dubai')">🌴 Dubai</button>
+      <button class="city-btn" onclick="searchCity('Sydney')">🦘 Sydney</button>
+    </div>
+  </div>
+</div>
+
+<div id="loading" class="loading hidden">
+  <div class="spinner"></div>
+  <span>Fetching weather...</span>
+</div>
+
+<div id="error" class="error-msg hidden"></div>
+
+<div id="main-card" class="weather-card hidden">
+  <div class="location-row">
+    <div class="city-name" id="cityDisplay"></div>
+    <div class="date-time" id="dateDisplay"></div>
+  </div>
+  <div class="main-weather">
+    <div class="temp-block">
+      <div class="temp" id="tempDisplay"></div>
+      <div class="feels" id="feelsDisplay"></div>
+    </div>
+    <div class="weather-icon" id="iconDisplay"></div>
+  </div>
+  <div class="condition" id="conditionDisplay"></div>
+  <hr class="divider"/>
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-icon">&#128167;</div>
+      <div class="stat-label">Humidity</div>
+      <div class="stat-value" id="humidityDisplay"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">&#127788;</div>
+      <div class="stat-label">Wind</div>
+      <div class="stat-value" id="windDisplay"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">&#128065;&#65039;</div>
+      <div class="stat-label">Visibility</div>
+      <div class="stat-value" id="visDisplay"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">&#9728;&#65039;</div>
+      <div class="stat-label">UV Index</div>
+      <div class="stat-value" id="uvDisplay"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">&#129517;</div>
+      <div class="stat-label">Pressure</div>
+      <div class="stat-value" id="pressDisplay"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">&#127774;</div>
+      <div class="stat-label">Sunrise</div>
+      <div class="stat-value" id="sunriseDisplay"></div>
+    </div>
+  </div>
+</div>
+
+<div id="forecast-card" class="forecast-card hidden">
+  <div class="forecast-title">5-Day Forecast</div>
+  <div class="forecast-list" id="forecastList"></div>
+</div>
+
+<div id="api-note" class="api-note">
+  <strong style="color:#fff;">&#128273; Setup required</strong><br/>
+  This app uses the <a href="https://openweathermap.org/api" target="_blank">OpenWeatherMap API</a> (free tier). To get started:
+  <ol style="margin: 0.6rem 0 0.6rem 1.2rem; color: var(--text-muted);">
+    <li>Sign up at <a href="https://openweathermap.org" target="_blank">openweathermap.org</a></li>
+    <li>Copy your API key from the dashboard</li>
+    <li>Replace <code>YOUR_API_KEY</code> in the JS below</li>
+  </ol>
+  Then type a city name and hit Search!
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
