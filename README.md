@@ -59,11 +59,6 @@ This app uses OpenWeatherMap API.
 
 ---
 
-## 📸 Preview
-
-*(Add screenshots here later if you want)*
-
----
 
 ## 📌 Future Improvements
 
