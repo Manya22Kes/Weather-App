@@ -62,9 +62,8 @@ This app uses OpenWeatherMap API.
 
 ## 📌 Future Improvements
 
-* Save last searched city
 * Add hourly forecast
-* Improve animations
+* Build a full weather analytics
 
 ---
 
